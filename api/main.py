@@ -13,17 +13,11 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-   return {"Welcome to": "My first FastAPI depolyment using Docker image"}
+   return {"Welcome to": "My first FastAPI depolyment"}
 
-@app.get("/get_api_key") # only for testing
-def get_api_key():
-    return JSONResponse({'api_key': os.getenv("GEMINI_API_KEY")})
-
-@app.get("/{text}")
-def read_item(text: str):
-   return JSONResponse({"result": text})
-
-
+@app.get("/api/generate")
+def generate():
+   return 
 
 
 if __name__ == "__main__":
