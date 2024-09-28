@@ -1,31 +1,25 @@
-import os
-from typing import Union
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 import uvicorn
 from typing import Union
 
 from dotenv import load_dotenv
-from mangum import Mangum
+
+from services.llm.gemini import time_per_course
+from services.llm.models import Course
 
 load_dotenv()
 
 app = FastAPI()
-handler = Mangum(app)
 
 @app.get("/")
 def read_root():
-   return {"Welcome to": "My first FastAPI depolyment using Docker image"}
+   return {"Welcome to": "My first FastAPI depolyment"}
 
-@app.get("/get_api_key") # only for testing
-def get_api_key():
-    return JSONResponse({'api_key': os.getenv("GEMINI_API_KEY")})
-
-@app.get("/{text}")
-def read_item(text: str):
-   return JSONResponse({"result": text})
-
-
+@app.post("/api/generate")
+def generate(query: list[Course]):
+   resp = time_per_course(query)
+   return resp.dict()
 
 
 if __name__ == "__main__":
