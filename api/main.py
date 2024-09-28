@@ -6,20 +6,22 @@ import uvicorn
 from typing import Union
 
 from dotenv import load_dotenv
-from mangum import Mangum
+
+from services.llm.gemini import make_llm_request, time_per_course
+from services.llm.models import Course
 
 load_dotenv()
 
 app = FastAPI()
-handler = Mangum(app)
 
 @app.get("/")
 def read_root():
    return {"Welcome to": "My first FastAPI depolyment"}
 
-@app.get("/api/generate")
-def generate():
-   return 
+@app.post("/api/generate")
+def generate(query: list[Course]):
+   resp = time_per_course(query)
+   return resp.dict()
 
 
 if __name__ == "__main__":
