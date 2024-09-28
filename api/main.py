@@ -1,8 +1,13 @@
+import os
 from typing import Union
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 import uvicorn
 from typing import Union
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
@@ -10,13 +15,16 @@ app = FastAPI()
 def read_root():
    return {"Welcome to": "My first FastAPI depolyment using Docker image"}
 
+@app.get("/get_api_key") # only for testing
+def get_api_key():
+    return JSONResponse({'api_key': os.getenv("GEMINI_API_KEY")})
+
 @app.get("/{text}")
 def read_item(text: str):
    return JSONResponse({"result": text})
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-   return JSONResponse({"item_id": item_id, "q": q})
+
+
 
 if __name__ == "__main__":
    uvicorn.run(app, host="0.0.0.0", port=8080)
