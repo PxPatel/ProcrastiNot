@@ -51,20 +51,13 @@ def createOrClearCalender(service):
     service.calendarList().insert(body = {"id": createdCalendar["id"]}).execute()
     return createdCalendar["id"]
 
-def createEvents(token, events):
-  if not token:
-    raise HTTPException(status_code=400, detail="Access token and event details are required.")
+def createEvent(service, calendarId, events):
+  if not service:
+    raise HTTPException(status_code=400, detail="Service is required.")
 
   try:
-    # Create Credentials object using the access token
-    creds = Credentials(token=token)
-
-    # Build the Google Calendar service
-    service = build('calendar', 'v3', credentials=creds)
-    calenderId = createOrClearCalender(service)
-
     # Call the Calendar API to create the event
-    event = service.events().insert(calendarId=calenderId, body=events).execute()
+    event = service.events().insert(calendarId=calendarId, body=events).execute()
 
     return {
         "eventId": event['id'],

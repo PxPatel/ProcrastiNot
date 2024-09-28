@@ -38,4 +38,6 @@ class Course(BaseModel):
     courseName: str
     assignments: list[Assignment]
 
-
+class QueryBody(BaseModel):
+    data: list[Course]
+    access_token: str
