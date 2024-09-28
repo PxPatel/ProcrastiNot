@@ -6,10 +6,12 @@ import uvicorn
 from typing import Union
 
 from dotenv import load_dotenv
+from mangum import Mangum
 
 load_dotenv()
 
 app = FastAPI()
+handler = Mangum(app)
 
 @app.get("/")
 def read_root():
