@@ -25,7 +25,11 @@ client = instructor.from_gemini(
 def make_llm_request(prompt, response_model=User) -> BaseModel:
     messages = [{
         'role': 'system',
-        'content': '''You are a Assignment Schedule Assistant tasked with helping the user begin their assignments on time. Analyze the user provided course names and corresponding assignments (with due dates) and determine a length of time (in minutes) the assignment will take to complete. Factor in and based on the course names determine the length of time needed to complete the given assingment in minutes and return it in valid JSON.
+        'content': '''You are a Assignment Schedule Assistant tasked with helping the user begin their assignments on time. Analyze the user provided course names and corresponding assignments (with due dates) and determine a length of time (in minutes) the assignment will take to complete. Factor in and based on the course names determine the length of time needed to complete the given assingment in minutes and return it in valid JSON. 
+        You should consider the weight of the assignment when calculating duration:
+            - Homeworks take less time than studying for Midterms or Exams
+            - STEM class assignments usually take longer than liberal arts
+            - Essays and projects take a long time
         
         Example Input: 
             {'currDate': "August 29, 2024",
@@ -38,16 +42,16 @@ def make_llm_request(prompt, response_model=User) -> BaseModel:
                 "courseName": "Principles of Operating Systems",
                 "data": [
                     {"assignmentName": "HW01", "duration": 60, "suggestedStartDate": "2024-10-05", "suggestedStartTime": "10:00"},
-                    {"assignmentName": "HW02", "duration": 120, "suggestedStartDate": "2024-11-05", "suggestedStartTime": "10:00"}
+                    {"assignmentName": "HW02", "duration": 60, "suggestedStartDate": "2024-11-05", "suggestedStartTime": "10:00"}
                 ]
 
             },
             {
                 "courseName": "Financial Markets and Systems",
                 "data": [
-                    {"assignmentName": "HW01", "duration": 234, "suggestedStartDate": "2024-10-15", "suggestedStartTime": "10:00"},
-                    {"assignmentName": "HW02", "duration": 134, "suggestedStartDate": "2024-11-15", "suggestedStartTime": "10:00"},
-                    {"assignmentName": "Midterm", "duration": 13, "suggestedStartDate": "2024-12-01", "suggestedStartTime": "10:00"}
+                    {"assignmentName": "HW01", "duration": 60, "suggestedStartDate": "2024-10-15", "suggestedStartTime": "10:00"},
+                    {"assignmentName": "HW02", "duration": 60, "suggestedStartDate": "2024-11-15", "suggestedStartTime": "10:00"},
+                    {"assignmentName": "Midterm", "duration": 120, "suggestedStartDate": "2024-12-01", "suggestedStartTime": "10:00"}
                 ]
             }
         ]
