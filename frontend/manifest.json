@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Web Scraper",
+    "version": "1.0",
+    "description": "Scrapes the current webpage and saves it as an HTML file.",
+    "permissions": ["activeTab"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "disco_ball.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
