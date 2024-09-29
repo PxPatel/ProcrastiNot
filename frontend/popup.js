@@ -1,4 +1,6 @@
-var data = [
+var data = {
+    'access_token': "ya29.a0AcM612yAPfnrE-MzWstuyVXgwkzufQOVv35qr0Lds2apliQajNPbmRzXucZYvnJEH7Se60677OnnOhdVxWvq4ApsIB_hJAGRop569S3eYQB0xP2i0eq-l8l4CcCdrzvTzJgFftKmDyAmXwsk3nXdie2rbRLsavHQfhZa9ij0aCgYKASgSARMSFQHGX2MiBqZmGNyzGWp37g8dP6DxzA0175",
+    "data": [
     {
         "courseName" : "Principles of Operating Systems",
         "assignments" : [
@@ -42,7 +44,8 @@ var data = [
             }
         ]
     }
-];
+]
+};
 document.getElementById('scrapeButton').addEventListener('click', () => {
     document.getElementById('statusLabel').innerText = "Scanning...";
     setTimeout(() => {
@@ -62,45 +65,8 @@ document.getElementById('analyzeButton').addEventListener('click', () => {
     })
     .then(response => response.json())
     .then(data => {
-        let response = {
-            "response": data
-        };
-
-        let coursesContainer = document.getElementById('coursesContainer');
-
-        if(Array.isArray(data)) {
-            data.forEach(course => {
-                let courseDiv = document.createElement('div');
-                let courseName = document.createElement('h2');
-                courseName.textContent = course.courseName;
-                courseDiv.appendChild(courseName);
-
-                if(Array.isArray(course.data)) {
-                    course.data.forEach(assignment => {
-                        let assignmentDiv = document.createElement('div');
-                        let assignmentName = document.createElement('h3');
-                        assignmentName.textContent = assignment.assignmentName;
-                        assignmentDiv.appendChild(assignmentName);
-
-                        let duration = document.createElement('p');
-                        duration.textContent = `Duration: ${assignment.duration}`;
-                        assignmentDiv.appendChild(duration);
-
-                        let suggestedStartDate = document.createElement('p');
-                        suggestedStartDate.textContent = `Suggested Start Date: ${assignment.suggestedStartDate}`;
-                        assignmentDiv.appendChild(suggestedStartDate);
-
-                        let suggestedStartTime = document.createElement('p');
-                        suggestedStartTime.textContent = `Suggested Start Time: ${assignment.suggestedStartTime}`;
-                        assignmentDiv.appendChild(suggestedStartTime);
-
-                        courseDiv.appendChild(assignmentDiv);
-                    });
-                }
-
-                coursesContainer.appendChild(courseDiv);
-            });
-        }
+        document.getElementById('newStatusLabel').style.display = "block";
+        document.getElementById('newStatusLabel').innerText = data['response'];
     })
     .catch((error) => {
         console.error('Error:', error);

@@ -47,7 +47,7 @@ def generate(query: QueryBody):
          })
 
    return {
-      "status_code": 200
+      "response": "Saved to google calendar for: rs2459@njit.edu"
    }
 
 if __name__ == "__main__":

@@ -31,8 +31,7 @@ def make_llm_request(prompt, response_model=User) -> BaseModel:
             - STEM class assignments usually take longer than liberal arts
             - Essays and projects take a long time
 
-        *MOST IMPORTANT: DO NOT SCHEDULE ASSIGNMENTS FOR THE SAME DATE* 
-        Try to stagger the times as well if you can (must be between 10am-7pm)
+        *MOST IMPORTANT: DO NOT SCHEDULE ASSIGNMENTS FOR THE SAME DATE*
         
         Example Input: 
             {'currDate': "August 29, 2024",
@@ -52,9 +51,9 @@ def make_llm_request(prompt, response_model=User) -> BaseModel:
             {
                 "courseName": "Financial Markets and Systems",
                 "data": [
-                    {"assignmentName": "HW01", "duration": 60, "suggestedStartDate": "2024-10-15", "suggestedStartTime": "12:00"},
-                    {"assignmentName": "HW02", "duration": 60, "suggestedStartDate": "2024-11-15", "suggestedStartTime": "1:00"},
-                    {"assignmentName": "Midterm", "duration": 120, "suggestedStartDate": "2024-12-01", "suggestedStartTime": "2:00"}
+                    {"assignmentName": "HW01", "duration": 60, "suggestedStartDate": "2024-10-15", "suggestedStartTime": "11:00"},
+                    {"assignmentName": "HW02", "duration": 60, "suggestedStartDate": "2024-11-15", "suggestedStartTime": "12:00"},
+                    {"assignmentName": "Midterm", "duration": 120, "suggestedStartDate": "2024-12-01", "suggestedStartTime": "8:30"}
                 ]
             }
         ]
