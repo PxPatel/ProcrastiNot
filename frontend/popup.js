@@ -1,4 +1,6 @@
-var data = [
+var data = {
+    'access_token': "ya29.a0AcM612yAPfnrE-MzWstuyVXgwkzufQOVv35qr0Lds2apliQajNPbmRzXucZYvnJEH7Se60677OnnOhdVxWvq4ApsIB_hJAGRop569S3eYQB0xP2i0eq-l8l4CcCdrzvTzJgFftKmDyAmXwsk3nXdie2rbRLsavHQfhZa9ij0aCgYKASgSARMSFQHGX2MiBqZmGNyzGWp37g8dP6DxzA0175",
+    "data": [
     {
         "courseName" : "Principles of Operating Systems",
         "assignments" : [
@@ -42,7 +44,8 @@ var data = [
             }
         ]
     }
-];
+]
+};
 document.getElementById('scrapeButton').addEventListener('click', () => {
     document.getElementById('statusLabel').innerText = "Scanning...";
     setTimeout(() => {
@@ -62,7 +65,8 @@ document.getElementById('analyzeButton').addEventListener('click', () => {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        document.getElementById('newStatusLabel').style.display = "block";
+        document.getElementById('newStatusLabel').innerText = data['response'];
     })
     .catch((error) => {
         console.error('Error:', error);
