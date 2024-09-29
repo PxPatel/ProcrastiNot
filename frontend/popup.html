@@ -122,6 +122,13 @@
         input:checked + .slider:before {
             transform: translateX(26px);
         }
+
+        .borderMain {
+            margin-top: 50px;
+            width: fit-content;
+            height: fit-content;
+        }
+
     </style>
 </head>
 <body>
@@ -139,7 +146,7 @@
         <div class="row justify-content-center">
             <p class="status-label" id="newStatusLabel" style="display: none;"></p>
         </div>
-        <div class="row justify-content-center">
+        <div class = "borderMain" class="row justify-content-left">
             <label class="switch">
                 <input type="checkbox" id="discoToggle">
                 <span class="slider"></span>
