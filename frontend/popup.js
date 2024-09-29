@@ -43,13 +43,22 @@ var data = [
         ]
     }
 ];
-document.getElementById('scrapeButton').addEventListener('click', () => {
-    document.getElementById('statusLabel').innerText = "Scanning...";
+
+document.getElementById('analyzeButton').addEventListener('click', () => {
+    document.getElementById('statusLabel').innerText = "Analyzing...";
     setTimeout(() => {
-        document.getElementById('statusLabel').innerText = "Scanning successful!";
-        document.getElementById('analyzeButton').style.display = "block";
+        document.getElementById('statusLabel').innerText = "Analysis successful!";
     }, 2000);
 });
+
+document.getElementById('analyzeButton').addEventListener('click', () => {
+    fetch('http://127.0.0.1:8000/api/generate', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
 
 
 document.getElementById('analyzeButton').addEventListener('click', () => {
