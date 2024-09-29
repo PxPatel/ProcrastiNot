@@ -30,6 +30,8 @@ def make_llm_request(prompt, response_model=User) -> BaseModel:
             - Homeworks take less time than studying for Midterms or Exams
             - STEM class assignments usually take longer than liberal arts
             - Essays and projects take a long time
+
+        *MOST IMPORTANT: DO NOT SCHEDULE ASSIGNMENTS FOR THE SAME DATE*
         
         Example Input: 
             {'currDate': "August 29, 2024",
@@ -41,7 +43,7 @@ def make_llm_request(prompt, response_model=User) -> BaseModel:
             {
                 "courseName": "Principles of Operating Systems",
                 "data": [
-                    {"assignmentName": "HW01", "duration": 60, "suggestedStartDate": "2024-10-05", "suggestedStartTime": "10:00"},
+                    {"assignmentName": "HW01", "duration": 60, "suggestedStartDate": "2024-10-05", "suggestedStartTime": "9:00"},
                     {"assignmentName": "HW02", "duration": 60, "suggestedStartDate": "2024-11-05", "suggestedStartTime": "10:00"}
                 ]
 
@@ -49,9 +51,9 @@ def make_llm_request(prompt, response_model=User) -> BaseModel:
             {
                 "courseName": "Financial Markets and Systems",
                 "data": [
-                    {"assignmentName": "HW01", "duration": 60, "suggestedStartDate": "2024-10-15", "suggestedStartTime": "10:00"},
-                    {"assignmentName": "HW02", "duration": 60, "suggestedStartDate": "2024-11-15", "suggestedStartTime": "10:00"},
-                    {"assignmentName": "Midterm", "duration": 120, "suggestedStartDate": "2024-12-01", "suggestedStartTime": "10:00"}
+                    {"assignmentName": "HW01", "duration": 60, "suggestedStartDate": "2024-10-15", "suggestedStartTime": "11:00"},
+                    {"assignmentName": "HW02", "duration": 60, "suggestedStartDate": "2024-11-15", "suggestedStartTime": "12:00"},
+                    {"assignmentName": "Midterm", "duration": 120, "suggestedStartDate": "2024-12-01", "suggestedStartTime": "8:30"}
                 ]
             }
         ]

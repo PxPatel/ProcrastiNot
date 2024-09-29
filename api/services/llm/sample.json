@@ -1,18 +1,42 @@
 [
-    {
-        "courseName": "Principles of Operating Systems",
-        "data": [
-            {"assignmentName": "HW01", "duration": 60, "suggestedStartDate": "2024-10-05", "suggestedStartTime": "10:00"},
-            {"assignmentName": "HW02", "duration": 120, "suggestedStartDate": "2024-11-05", "suggestedStartTime": "10:00"}
-        ]
-
-    },
-    {
-        "courseName": "Financial Markets and Systems",
-        "data": [
-            {"assignmentName": "HW01", "duration": 234, "suggestedStartDate": "2024-10-15", "suggestedStartTime": "10:00"},
-            {"assignmentName": "HW02", "duration": 134, "suggestedStartDate": "2024-11-15", "suggestedStartTime": "10:00"},
-            {"assignmentName": "Midterm", "duration": 13, "suggestedStartDate": "2024-12-01", "suggestedStartTime": "10:00"}
-        ]
-    }
+  {
+    "courseName": "Principles of Operating Systems",
+    "data": [
+      {
+        "assignmentName": "HW01",
+        "duration": 60,
+        "suggestedStartDate": "2024-10-05",
+        "suggestedStartTime": "10:00"
+      },
+      {
+        "assignmentName": "HW02",
+        "duration": 120,
+        "suggestedStartDate": "2024-11-05",
+        "suggestedStartTime": "10:00"
+      }
+    ]
+  },
+  {
+    "courseName": "Financial Markets and Systems",
+    "data": [
+      {
+        "assignmentName": "HW01",
+        "duration": 234,
+        "suggestedStartDate": "2024-10-15",
+        "suggestedStartTime": "10:00"
+      },
+      {
+        "assignmentName": "HW02",
+        "duration": 134,
+        "suggestedStartDate": "2024-11-15",
+        "suggestedStartTime": "10:00"
+      },
+      {
+        "assignmentName": "Midterm",
+        "duration": 13,
+        "suggestedStartDate": "2024-12-01",
+        "suggestedStartTime": "10:00"
+      }
+    ]
+  }
 ]

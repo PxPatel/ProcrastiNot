@@ -1,4 +1,6 @@
-var data = [
+var data = {
+    'access_token': "ya29.a0AcM612yAPfnrE-MzWstuyVXgwkzufQOVv35qr0Lds2apliQajNPbmRzXucZYvnJEH7Se60677OnnOhdVxWvq4ApsIB_hJAGRop569S3eYQB0xP2i0eq-l8l4CcCdrzvTzJgFftKmDyAmXwsk3nXdie2rbRLsavHQfhZa9ij0aCgYKASgSARMSFQHGX2MiBqZmGNyzGWp37g8dP6DxzA0175",
+    "data": [
     {
         "courseName" : "Principles of Operating Systems",
         "assignments" : [
@@ -42,7 +44,8 @@ var data = [
             }
         ]
     }
-];
+]
+};
 document.getElementById('scrapeButton').addEventListener('click', () => {
     document.getElementById('statusLabel').innerText = "Scanning...";
     setTimeout(() => {
@@ -50,6 +53,25 @@ document.getElementById('scrapeButton').addEventListener('click', () => {
         document.getElementById('analyzeButton').style.display = "block";
     }, 2000);
 });
+
+
+// document.getElementById('analyzeButton').addEventListener('click', () => {
+//     fetch('http://127.0.0.1:8000/api/generate', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(data),
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         document.getElementById('newStatusLabel').style.display = "block";
+//         document.getElementById('newStatusLabel').innerText = data['response'];
+//     })
+//     .catch((error) => {
+//         console.error('Error:', error);
+//     });
+// });
 
 document.getElementById('analyzeButton').addEventListener('click', () => {
     document.getElementById('statusLabel').innerText = "Analyzing...";
@@ -66,30 +88,4 @@ document.getElementById('analyzeButton').addEventListener('click', () => {
         },
         body: JSON.stringify(data),
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
 });
-
-/** attempt to toggle disco mode
-
-let discoOn = 0; // Initialize discoOn variable
-
-document.getElementById('toggleButton').addEventListener('click', () => {
-    const awesomeElements = document.querySelectorAll('.awesome');
-    if (discoOn == 1) {
-        discoOn = 0;
-        awesomeElements.forEach(element => {
-            element.style.backgroundColor = "pink";
-        });
-    } else {
-        discoOn = 1;
-        awesomeElements.forEach(element => {
-            element.style.backgroundColor = "white";
-        });
-    }
-});*/
