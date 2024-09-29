@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timedelta
 import json
 import os
 from fastapi import HTTPException
@@ -10,16 +10,16 @@ calendarName = "ProcrastiNot"
 
 def create_event_times(event_details):
     # Extract details
-    start_date = event_details['suggestedStartDate']
-    start_time = event_details['suggestedStartTime']
-    duration_minutes = event_details['duration']
+    start_date = event_details["suggestedStartDate"]
+    start_time = event_details["suggestedStartTime"]
+    duration_minutes = event_details["duration"]
 
     # Combine date and time into a datetime object
     start_datetime_str = f"{start_date} {start_time}"
     start_datetime = datetime.strptime(start_datetime_str, "%Y-%m-%d %H:%M")
 
     # Calculate the end time by adding the duration
-    end_datetime = start_datetime + datetime.timedelta(minutes=duration_minutes)
+    end_datetime = start_datetime + timedelta(minutes=duration_minutes)
 
     # Convert both to RFC3339 format with timezone (assuming UTC for simplicity)
     start_time_rfc3339 = start_datetime.isoformat() + "Z"  # Add 'Z' for UTC timezone

@@ -20,7 +20,7 @@ def read_root():
 @app.post("/api/generate")
 def generate(query: QueryBody):
    LLM_response = time_per_course(query.data)
-   scheduled_data = LLM_response.dict()
+   scheduled_data = LLM_response.dict()["response"]
 
    # Create Credentials object using the access token
    creds = Credentials(token=query.access_token)
@@ -30,17 +30,19 @@ def generate(query: QueryBody):
    calendarId = createOrClearCalender(service)
 
    for course in scheduled_data:
+      # print(course)
       for assignment in course["data"]:
+         # print("assignment:", assignment)
          event_times = create_event_times(assignment)
-
+         # print(event_times)
          createEvent(service, calendarId, {
             "summary": assignment["assignmentName"],
             "description": course["courseName"],
             "start": {
-               "datetime": event_times["start"]["datetime"]
+               "dateTime": event_times["start"]["dateTime"]
             },
             "end": {
-               "datetime": event_times["end"]["datetime"]
+               "dateTime": event_times["end"]["dateTime"]
             }
          })
 
