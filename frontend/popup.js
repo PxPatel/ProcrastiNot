@@ -55,6 +55,31 @@ document.getElementById('scrapeButton').addEventListener('click', () => {
 });
 
 
+// document.getElementById('analyzeButton').addEventListener('click', () => {
+//     fetch('http://127.0.0.1:8000/api/generate', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(data),
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         document.getElementById('newStatusLabel').style.display = "block";
+//         document.getElementById('newStatusLabel').innerText = data['response'];
+//     })
+//     .catch((error) => {
+//         console.error('Error:', error);
+//     });
+// });
+
+document.getElementById('analyzeButton').addEventListener('click', () => {
+    document.getElementById('statusLabel').innerText = "Analyzing...";
+    setTimeout(() => {
+        document.getElementById('statusLabel').innerText = "Analysis successful!";
+    }, 2000);
+});
+
 document.getElementById('analyzeButton').addEventListener('click', () => {
     fetch('http://127.0.0.1:8000/api/generate', {
         method: 'POST',
@@ -63,12 +88,4 @@ document.getElementById('analyzeButton').addEventListener('click', () => {
         },
         body: JSON.stringify(data),
     })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('newStatusLabel').style.display = "block";
-        document.getElementById('newStatusLabel').innerText = data['response'];
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
 });
