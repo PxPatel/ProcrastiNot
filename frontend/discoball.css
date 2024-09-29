@@ -55,6 +55,17 @@ html {
     -webkit-animation: rotateDiscoBall 18s linear infinite;
     animation: rotateDiscoBall 18s linear infinite;
   }
+
+  .disco-ball {
+    background: -webkit-linear-gradient(top, #111, #333);
+    background: -moz-linear-gradient(top, #111, #333);
+    background: linear-gradient(top, #111, #333);
+    -webkit-animation: rotateDiscoBallMiddle 18s linear infinite;
+    animation: rotateDiscoBallMiddle 18s linear infinite;
+    width: 100px; /* Add width */
+    height: 100px; /* Add height */
+    border-radius: 50%; /* Make it a circle */
+  }
   
   #discoBallLight {
     width: 100px;

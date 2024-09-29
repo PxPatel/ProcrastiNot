@@ -74,3 +74,22 @@ document.getElementById('analyzeButton').addEventListener('click', () => {
         console.error('Error:', error);
     });
 });
+
+/** attempt to toggle disco mode
+
+let discoOn = 0; // Initialize discoOn variable
+
+document.getElementById('toggleButton').addEventListener('click', () => {
+    const awesomeElements = document.querySelectorAll('.awesome');
+    if (discoOn == 1) {
+        discoOn = 0;
+        awesomeElements.forEach(element => {
+            element.style.backgroundColor = "pink";
+        });
+    } else {
+        discoOn = 1;
+        awesomeElements.forEach(element => {
+            element.style.backgroundColor = "white";
+        });
+    }
+});*/
