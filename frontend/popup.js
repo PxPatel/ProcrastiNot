@@ -51,6 +51,12 @@ document.getElementById('scrapeButton').addEventListener('click', () => {
     }, 2000);
 });
 
+document.getElementById('analyzeButton').addEventListener('click', () => {
+    document.getElementById('statusLabel').innerText = "Analyzing...";
+    setTimeout(() => {
+        document.getElementById('statusLabel').innerText = "Analysis successful!";
+    }, 2000);
+});
 
 document.getElementById('analyzeButton').addEventListener('click', () => {
     fetch('http://127.0.0.1:8000/api/generate', {

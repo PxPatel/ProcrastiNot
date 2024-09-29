@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #ee5ecf;
             color: #212529;
             width: 500px;
             height: 500px;
@@ -47,6 +47,63 @@
             padding: 10px;
             border-radius: 5px;
         }
+        /* Lights Animation */
+        .lights-container {
+            height: 200px; /* Adjusted height for a smaller container */
+            width: 100%;
+            margin: 30px auto;
+            display: flex;
+            justify-content: space-around; /* Spreads the lights evenly */
+        }
+
+        .lights {
+            display: inline-block;
+            height: 100%;
+            width: 100px; /* Adjusted width for smaller lights */
+            position: relative;
+            background: radial-gradient(circle at bottom, rgb(255, 255, 158) 10%, rgb(179, 0, 255) 80%, rgb(255, 255, 158) 100%);
+            animation: lights 4s linear infinite;
+            transform-origin: 50% 100%;
+        }
+
+        .lights::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-right: 40px solid transparent; /* Adjusted for smaller lights */
+            border-bottom: 200px solid #ee5ecf; /* Adjusted for smaller lights */
+        }
+
+        .lights::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent; /* Adjusted for smaller lights */
+            border-bottom: 200px solid #ee5ecf; /* Adjusted for smaller lights */
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        @keyframes lights {
+            0% {
+                transform: rotateZ(0deg);
+            }
+            25% {
+                transform: rotateZ(-60deg);
+            }
+            50% {
+                transform: rotateZ(0deg);
+            }
+            75% {
+                transform: rotate(60deg);
+            }
+            100% {
+                transform: rotateZ(0deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -60,6 +117,14 @@
         </div>
         <div class="row justify-content-center">
             <button class="btn btn-primary" id="analyzeButton" style="display: none;">Analyze Courses</button>
+        </div>
+        <!-- Integrated Lights Animation -->
+        <div class="row justify-content-center">
+            <div class="lights-container">
+                <div class="lights"></div>
+                <div class="lights"></div>
+                <div class="lights"></div>
+            </div>
         </div>
     </div>
     <script src="popup.js"></script>
